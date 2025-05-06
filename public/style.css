@@ -1,0 +1,99 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px;
+  background-color: #f7f7f7;
+  color: #333;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.logements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.logement {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logement:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.logement img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.logement h2 {
+  font-size: 18px;
+  margin: 15px 10px 5px;
+}
+
+.logement a {
+  text-decoration: none;
+  color: #2a2a2a;
+}
+
+.logement a:hover {
+  color: #e63946;
+}
+
+.logement p {
+  font-weight: bold;
+  margin: 0 10px 15px;
+  color: #666;
+}
+#recherche {
+  display: block;
+  margin: 0 auto 30px;
+  padding: 10px 15px;
+  font-size: 16px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.coeur {
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+  margin-left: 10px;
+  color: #e63946;
+  transition: transform 0.2s ease;
+}
+
+.coeur:hover {
+  transform: scale(1.2);
+}
+
+#btnFavoris {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #e63946;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+#btnFavoris:hover {
+  background-color: #d62828;
+}

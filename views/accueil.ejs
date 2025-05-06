@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Airbnb</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Liste des logements</h1>
+
+  <!-- Barre de recherche -->
+  <input type="text" id="recherche" placeholder="Rechercher un logement..." />
+  <button id="btnFavoris">Voir les favoris</button>
+
+  <div class="logements">
+    <% logements.forEach(logement => { %>
+      <div class="logement" data-titre="<%= logement.titre.toLowerCase() %>">
+        <img src="<%= logement.image %>" alt="<%= logement.titre %>">
+        <h2>
+          <a href="/logement/<%= logement.id %>"><%= logement.titre %></a>
+          <span class="coeur" data-id="<%= logement.id %>">♡</span>
+        </h2>
+        <p><%= logement.prix %> €/nuit</p>
+      </div>
+    <% }); %>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= logement.titre %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <a href="/">← Retour à la liste</a>
+  <h1><%= logement.titre %></h1>
+  <img src="<%= logement.image %>" alt="<%= logement.titre %>">
+  <p>Prix : <%= logement.prix %> €/nuit</p>
+  <p><%= logement.description %></p>
+</body>
+</html>
