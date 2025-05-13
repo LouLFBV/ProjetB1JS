@@ -5,11 +5,19 @@
   <title>Mini Airbnb</title>
   <link rel="stylesheet" href="/style.css">
 </head>
+<!-- Galerie modale -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span id="modal-close" class="modal-close">&times;</span>
+    <div id="modal-images" class="modal-images"></div>
+  </div>
+</div>
+
 <body>
   <!-- Header -->
   <header>
     <div class="header-gauche">
-      <a href="/">🏠 Accueil</a>
+      <img src="/home.png" alt="Accueil" class="icon-home">
     </div>
 
     <div class="header-centre">
@@ -29,13 +37,16 @@
   <div class="logements">
     <% logements.forEach(logement => { %>
       <div class="logement" data-titre="<%= logement.titre.toLowerCase() %>">
-        <img src="<%= logement.image %>" alt="<%= logement.titre %>">
-        <h2>
-          <a href="/logement/<%= logement.id %>"><%= logement.titre %></a>
-          <span class="coeur" data-id="<%= logement.id %>">♡</span>
-        </h2>
-        <p><%= logement.prix %> €/nuit</p>
-      </div>
+  <a href="/logement/<%= logement.id %>">
+    <img src="<%= logement.image %>" alt="<%= logement.titre %>">
+  </a>
+  <h2>
+    <a href="/logement/<%= logement.id %>"><%= logement.titre %></a>
+    <span class="coeur" data-id="<%= logement.id %>">♡</span>
+  </h2>
+  <p><%= logement.prix %> €/nuit</p>
+</div>
+
     <% }); %>
   </div>
 

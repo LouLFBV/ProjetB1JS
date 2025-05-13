@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title><%= logement.titre %> - Détail</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <a href="/" style="margin: 20px; display: inline-block;">← Retour à l'accueil</a>
+
+  <div class="detail-container">
+    <img src="<%= logement.image %>" alt="<%= logement.titre %>" class="detail-image">
+
+    <div class="detail-info">
+      <h1><%= logement.titre %></h1>
+      <p><strong>Prix :</strong> <%= logement.prix %> €/nuit</p>
+      <p><strong>Description :</strong> <%= logement.description %></p>
+      <p><strong>Détails :</strong> <%= logement.longDescription || 'Aucune information supplémentaire.' %></p>
+
+      <!-- Sélecteur de dates -->
+      <div class="reservation-section">
+        <label for="start">Date d'arrivée :</label>
+        <input type="date" id="start" name="start">
+
+        <label for="end">Date de départ :</label>
+        <input type="date" id="end" name="end">
+
+        <button id="btnReserver">Réserver</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
