@@ -6,12 +6,26 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <div class="header-gauche">
+      <a href="/">🏠 Accueil</a>
+    </div>
+
+    <div class="header-centre">
+      <input type="text" id="recherche" placeholder="Rechercher un logement..." />
+    </div>
+
+    <div class="header-droite">
+      <button id="btnFavoris">❤️ Favoris</button>
+      <button>👤 Profil</button>
+    </div>
+  </header>
+
+  <!-- Titre -->
   <h1>Liste des logements</h1>
 
-  <!-- Barre de recherche -->
-  <input type="text" id="recherche" placeholder="Rechercher un logement..." />
-  <button id="btnFavoris">Voir les favoris</button>
-
+  <!-- Logements -->
   <div class="logements">
     <% logements.forEach(logement => { %>
       <div class="logement" data-titre="<%= logement.titre.toLowerCase() %>">
@@ -27,5 +41,4 @@
 
   <script src="/script.js"></script>
 </body>
-
 </html>
