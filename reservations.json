@@ -1,0 +1,11 @@
+[
+  {
+    "logementId": 3,
+    "titre": "Appartement à New York",
+    "image": "/airbnbNY.jpg",
+    "prix": 150,
+    "start": "2025-09-02",
+    "end": "2025-09-04",
+    "dateReservation": "2025-05-25T19:35:20.883Z"
+  }
+]

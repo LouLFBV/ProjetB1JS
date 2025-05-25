@@ -1,19 +1,30 @@
-/* Header */
+/* 🌐 Base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 40px 20px;
+  line-height: 1.6;
+}
+
+/* 🧭 Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 20px 30px;
   background-color: white;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+  border-radius: 12px;
 }
 
 .header-gauche a {
-  font-size: 20px;
-  text-decoration: none;
-  color: #e63946;
+  font-size: 22px;
   font-weight: bold;
+  color: #e63946;
+  text-decoration: none;
 }
 
 .header-centre input {
@@ -22,123 +33,131 @@ header {
   width: 300px;
   border: 1px solid #ccc;
   border-radius: 25px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.header-centre input:focus {
+  border-color: #e63946;
 }
 
 .header-droite button {
   background: none;
   border: none;
-  font-size: 20px;
-  margin-left: 15px;
+  font-size: 22px;
   cursor: pointer;
+  color: #444;
+  transition: color 0.2s ease;
 }
 
 .header-droite button:hover {
   color: #e63946;
 }
 
-.icon-home {
-  height: 120px;
-  width: 120px;
-  object-fit: contain;
-  position: relative;
-  top: -15px; 
-}
-
-
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 40px;
-  background-color: #f7f7f7;
-  color: #333;
-  margin: 0;
-}
-
+/* 🏡 Titres */
 h1 {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
+/* 🧱 Grille de logements */
 .logements {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  padding: 0 20px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* 📦 Carte logement */
 .logement {
   background-color: white;
-  border-radius: 12px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .logement:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .logement img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  display: block;
 }
 
 .logement h2 {
-  font-size: 18px;
-  margin: 15px 10px 5px;
-}
-
-.logement a {
-  text-decoration: none;
-  color: #2a2a2a;
-}
-
-.logement a:hover {
-  color: #e63946;
+  font-size: 20px;
+  margin: 15px 15px 5px;
 }
 
 .logement p {
-  font-weight: bold;
-  margin: 0 10px 15px;
+  margin: 0 15px 15px;
   color: #666;
+  font-weight: 500;
 }
+
+.logement .coeur {
+  float: right;
+  font-size: 22px;
+  margin: 10px 15px 0 0;
+}
+
+/* 🔍 Recherche */
 #recherche {
   display: block;
   margin: 0 auto 30px;
   padding: 10px 15px;
   font-size: 16px;
-  width: 300px;
+  width: 320px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 25px;
+  outline: none;
+  transition: border-color 0.2s ease;
 }
 
+#recherche:focus {
+  border-color: #e63946;
+}
+
+/* ❤️ Coeurs */
 .coeur {
   cursor: pointer;
-  float: right;
-  font-size: 20px;
-  margin-left: 10px;
   color: #e63946;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s;
 }
 
 .coeur:hover {
   transform: scale(1.2);
 }
 
+.coeur.active {
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+/* ⭐ Bouton favoris */
 #btnFavoris {
   display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
+  margin: 30px auto;
+  padding: 12px 24px;
   background-color: #e63946;
   color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
   font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
@@ -146,7 +165,74 @@ h1 {
   background-color: #d62828;
 }
 
+/* 🗓️ Réservation section */
+.reservation-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
+.reservation-section input[type="date"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 220px;
+}
+
+/* 📆 Calendrier dates réservées */
+.flatpickr-day.reserved-day {
+  background: #ff4d4d;
+  color: white;
+  cursor: not-allowed;
+}
+
+/* ❌ Bouton annuler */
+.annuler-reservation {
+  margin: 10px 15px 20px;
+  padding: 10px 16px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  align-self: flex-start;
+  transition: background-color 0.2s ease;
+}
+
+.annuler-reservation:hover {
+  background-color: #d32f2f;
+}
+
+/* 🖼️ Détails */
+.detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.detail-image {
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.detail-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 🪟 Modal */
 .modal {
   display: none;
   position: fixed;
@@ -159,8 +245,8 @@ h1 {
 
 .modal-content {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 25px;
+  border-radius: 12px;
   max-width: 900px;
   width: 90%;
   max-height: 90%;
@@ -182,85 +268,4 @@ h1 {
   border-radius: 10px;
   margin-bottom: 15px;
   object-fit: cover;
-}
-
-.detail-container {
-  display: flex;
-  gap: 30px;
-  padding: 40px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
-  margin: 40px auto;
-}
-
-.detail-image {
-  width: 50%;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.detail-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.detail-info h1 {
-  margin-top: 0;
-  font-size: 28px;
-}
-
-.detail-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  padding: 30px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.detail-image {
-  width: 400px;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.detail-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.reservation-section {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.reservation-section input[type="date"] {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  width: 200px;
-}
-
-#btnReserver {
-  padding: 10px 20px;
-  background-color: #e63946;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-#btnReserver:hover {
-  background-color: #d62828;
 }

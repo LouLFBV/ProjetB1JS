@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title><%= logement.titre %> - Détail</title>
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
 
@@ -18,18 +19,52 @@
       <p><strong>Description :</strong> <%= logement.description %></p>
       <p><strong>Détails :</strong> <%= logement.longDescription || 'Aucune information supplémentaire.' %></p>
 
-      <!-- Sélecteur de dates -->
-      <div class="reservation-section">
+      <!-- Formulaire de réservation avec Flatpickr -->
+      <form action="/reserver" method="POST" class="reservation-section">
+        <input type="hidden" name="logementId" value="<%= logement.id %>">
+
         <label for="start">Date d'arrivée :</label>
-        <input type="date" id="start" name="start">
+        <input type="text" id="start" name="start" required placeholder="Choisir une date">
 
         <label for="end">Date de départ :</label>
-        <input type="date" id="end" name="end">
+        <input type="text" id="end" name="end" required placeholder="Choisir une date">
 
-        <button id="btnReserver">Réserver</button>
-      </div>
+        <button type="submit">Réserver</button>
+      </form>
     </div>
   </div>
 
+  <!-- Dates réservées injectées depuis le serveur -->
+  <script>
+    const datesReservees = <%- JSON.stringify(datesReservees || []) %>;
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    // Désactive les dates déjà réservées
+    function disabledDates(dates) {
+      return dates.map(date => {
+        return flatpickr.formatDate(new Date(date), 'Y-m-d');
+      });
+    }
+
+    const configStart = {
+      dateFormat: "Y-m-d",
+      disable: disabledDates(datesReservees),
+      onChange: function(selectedDates, dateStr, instance) {
+        endPicker.set('minDate', dateStr);
+      }
+    };
+
+    const configEnd = {
+      dateFormat: "Y-m-d",
+      disable: disabledDates(datesReservees),
+    };
+
+    flatpickr("#start", configStart);
+    const endPicker = flatpickr("#end", configEnd);
+  </script>
+
+  <script src="/script.js"></script>
 </body>
 </html>

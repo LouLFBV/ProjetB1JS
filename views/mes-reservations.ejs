@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mes réservations</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <a href="/" style="margin: 20px; display: inline-block;">← Retour à l'accueil</a>
+  <h1>Mes réservations</h1>
+
+  <p id="no-reservation-msg" style="<%= reservations.length === 0 ? '' : 'display:none;' %>">
+    Aucune réservation pour le moment.
+  </p>
+
+  <% if (reservations.length > 0) { %>
+    <div class="logements" id="reservations-container">
+      <% reservations.forEach(r => { %>
+        <div class="logement reservation-card">
+          <img src="<%= r.image %>" alt="<%= r.titre %>">
+          <h2><%= r.titre %></h2>
+          <p>Du <%= r.start %> au <%= r.end %></p>
+          <p><%= r.prix %> €/nuit</p>
+          <button 
+            class="annuler-reservation" 
+            data-reservation-id="<%= r.dateReservation %>">
+            Annuler
+          </button>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <script src="/script.js"></script>
+</body>
+</html>
