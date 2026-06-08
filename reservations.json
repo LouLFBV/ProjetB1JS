@@ -7,5 +7,14 @@
     "start": "2025-09-02",
     "end": "2025-09-04",
     "dateReservation": "2025-05-25T19:35:20.883Z"
+  },
+  {
+    "logementId": 1,
+    "titre": "Appartement à Paris",
+    "image": "/airbnbParis.jpg",
+    "prix": 120,
+    "start": "2026-06-18",
+    "end": "2026-06-25",
+    "dateReservation": "2026-06-04T07:12:54.492Z"
   }
 ]
